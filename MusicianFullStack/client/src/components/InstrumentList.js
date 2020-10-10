@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import InstrumentCard from './InstrumentCard';
 import { InstrumentContext } from '../providers/InstrumentProvider';
 
 const InstrumentList = () => {
@@ -11,9 +12,11 @@ const InstrumentList = () => {
   return (
     <>
       <h1>Instrument List</h1>
-      {instruments.map(instrument =>
-        <div>{instrument.name}</div>
-      )}
+      <div className="instrument-list">
+        {instruments.map(instrument =>
+          <InstrumentCard instrument={instrument} />
+        )}
+      </div>
     </>
   );
 }

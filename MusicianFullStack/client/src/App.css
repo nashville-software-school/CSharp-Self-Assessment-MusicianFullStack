@@ -1,38 +1,56 @@
+body {
+  background-color: #686256;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0;
+}
+
 .App {
-  text-align: center;
+  background-color: white;
+  padding: 20px 40px 20px 40px;
+  margin: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.instrument-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.instrument-card {
+  border-bottom: 1px #a96e5b inset;
+  border-top: 1px #a96e5b inset;
+  padding: 20px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.instrument-card__name {
+  margin: 8px 0;
+  display: block;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.instrument-card__difficulty {
+  font-size: 1.2em;
+  margin: 4px 0;
+  display: block;
+  font-weight: bold;
+}
+.instrument-card__difficulty label {
+  margin-right: 4px;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.instrument-card.Easy .instrument-card__difficulty span {
+  color: #587e76;
+}
+
+.instrument-card.Hard .instrument-card__difficulty span {
+  color:#c1502e;
 }
