@@ -13,6 +13,12 @@ export const InstrumentProvider = (props) => {
       .then(setInstruments);
   };
 
+  const searchInstruments = (criterion) => {
+    fetch(`${apiUrl}search?q=${criterion}`)
+      .then(resp => resp.json())
+      .then(setInstruments);
+  };
+
   const getInstrument = (id) => {
     return fetch(apiUrl + id).then(resp => resp.json());
   }
@@ -28,7 +34,8 @@ export const InstrumentProvider = (props) => {
   }
 
   return (
-    <InstrumentContext.Provider value={{ instruments, getInstruments, getInstrument, updateInstrument }}>
+    <InstrumentContext.Provider 
+      value={{ instruments, getInstruments, getInstrument, searchInstruments, updateInstrument }}>
       {props.children}
     </InstrumentContext.Provider>
   )
