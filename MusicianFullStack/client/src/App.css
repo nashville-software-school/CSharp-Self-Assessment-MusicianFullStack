@@ -54,3 +54,11 @@ h1 {
 .instrument-card.Hard .instrument-card__difficulty span {
   color:#c1502e;
 }
+
+.instrument-card__edit-button {
+  color: #a96e5b ;
+  margin-left: 10px;
+  display: inline-block;
+  transform: rotateZ(90deg);
+  text-align: right;
+}

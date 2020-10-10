@@ -1,12 +1,21 @@
 import React from 'react';
 import './App.css';
-import InstrumentList from './components/InstrumentList';
+import { BrowserRouter as Router } from "react-router-dom";
+import { InstrumentProvider } from './providers/InstrumentProvider';
+import ApplicationViews from './ApplicationViews';
+import { DifficultyProvider } from './providers/DifficultyProvider';
 
 function App() {
   return (
-    <div className="App">
-      <InstrumentList/>
-    </div>
+    <Router>
+      <DifficultyProvider>
+        <InstrumentProvider>
+          <div className="App">
+            <ApplicationViews />
+          </div>
+        </InstrumentProvider>
+      </DifficultyProvider>
+    </Router>
   );
 }
 

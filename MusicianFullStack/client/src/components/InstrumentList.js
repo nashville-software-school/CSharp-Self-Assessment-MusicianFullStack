@@ -14,7 +14,9 @@ const InstrumentList = () => {
       <h1>Instrument List</h1>
       <div className="instrument-list">
         {instruments.map(instrument =>
-          <InstrumentCard instrument={instrument} />
+          <InstrumentCard 
+            key={instrument.id}
+            instrument={instrument} />
         )}
       </div>
     </>
