@@ -52,7 +52,7 @@ const InstrumentForm = () => {
           <select id="difficultyId" value={difficultyId}
             onChange={e => setDifficultyId(parseInt(e.target.value))}>
             {difficulties.map(option =>
-              <option value={option.id}> {option.label} </option>
+              <option key={option.id} value={option.id}> {option.label} </option>
             )}
           </select>
         </div>

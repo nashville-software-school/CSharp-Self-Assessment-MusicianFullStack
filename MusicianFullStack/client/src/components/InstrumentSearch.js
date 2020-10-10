@@ -19,7 +19,8 @@ const InstrumentSearch = () => {
         {instruments.map(instrument =>
           <InstrumentCard 
             key={instrument.id}
-            instrument={instrument} />
+            instrument={instrument}
+            allowEdit={false} />
         )}
       </div>
     </>
