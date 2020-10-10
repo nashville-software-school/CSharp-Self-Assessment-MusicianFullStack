@@ -26,35 +26,42 @@ const InstrumentForm = () => {
   }, []);
 
   const saveInstrument = () => {
-    const instrument = { 
+    const instrument = {
       id: instrumentId,
-      name: name, 
-      difficultyId: difficultyId 
+      name: name,
+      difficultyId: difficultyId
     };
     updateInstrument(instrument).then(() => history.push('/'));
   }
 
+  const cancelUpdate = () => {
+    history.push('/');
+  };
+
   return (
-    <div className="instrument-form">
+    <>
       <h1>Edit Instrument</h1>
-      <div className="instrument-form__input">
-        <label htmlFor="name">Name</label>
-        <input id="name" value={name}
-          onChange={e => setName(e.target.value)} />
-      </div>
-      <div className="instrument-form__input">
-        <label htmlFor="difficultyId">Difficulty</label>
-        <select id="difficultyId" value={difficultyId}
-          onChange={e => setDifficultyId(parseInt(e.target.value))}>
-            {difficulties.map(option => 
+      <div className="instrument-form">
+        <div className="instrument-form__input">
+          <label htmlFor="name">Name</label>
+          <input id="name" value={name}
+            onChange={e => setName(e.target.value)} />
+        </div>
+        <div className="instrument-form__input">
+          <label htmlFor="difficultyId">Difficulty</label>
+          <select id="difficultyId" value={difficultyId}
+            onChange={e => setDifficultyId(parseInt(e.target.value))}>
+            {difficulties.map(option =>
               <option value={option.id}> {option.label} </option>
             )}
-        </select>
+          </select>
+        </div>
+        <div className="instrument-form__button">
+          <button onClick={cancelUpdate}>Cancel</button>
+          <button className="primary" onClick={saveInstrument}>Save</button>
+        </div>
       </div>
-      <div className="instrument-form__input">
-        <button onClick={saveInstrument}>Save</button>
-      </div>
-    </div>
+    </>
   )
 }
 

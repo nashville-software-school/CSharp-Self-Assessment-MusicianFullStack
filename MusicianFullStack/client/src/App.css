@@ -62,3 +62,45 @@ h1 {
   transform: rotateZ(90deg);
   text-align: right;
 }
+
+.instrument-form {
+  margin: 20px 0;
+}
+
+.instrument-form__input {
+  margin: 10px 0;
+}
+
+.instrument-form__input label {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+
+.instrument-form__input input {
+  padding-left: 2px;
+}
+
+.instrument-form__input input,
+.instrument-form__input select {
+  width: 120px;
+  box-sizing: border-box;
+}
+
+
+.instrument-form__button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.instrument-form__button button {
+  padding: 5px 10px;
+}
+
+.instrument-form__button .primary {
+  font-weight: bold;
+}
