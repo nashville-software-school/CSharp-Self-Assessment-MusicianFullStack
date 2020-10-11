@@ -22,7 +22,7 @@ namespace MusicianFullStack.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetById(int id)
         {
             return Ok(_instrumentRepository.GetById(id));
         }
