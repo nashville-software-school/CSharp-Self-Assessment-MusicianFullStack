@@ -13,8 +13,10 @@ const InstrumentSearch = () => {
   return (
     <>
       <h1>Instrument Search</h1>
-      <input id="search" value={criterion} onChange={e => setCriterion(e.target.value)}/>
-      <button onClick={() => searchInstruments(criterion)}>Search</button>
+      <div className="instrument-search__form">
+        <input id="search" value={criterion} onChange={e => setCriterion(e.target.value)}/>
+        <button onClick={() => searchInstruments(criterion)}>Search</button>
+      </div>
       <div className="instrument-list">
         {instruments.map(instrument =>
           <InstrumentCard 

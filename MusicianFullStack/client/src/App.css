@@ -11,10 +11,13 @@ h1 {
 }
 
 header {
-  margin-top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
   background-color: white;
-  border: 1px #a96e5b solid;
-  padding: 20px;
+  border-bottom: 2px #a96e5b solid;
   text-align: center;
   font-size: x-large;
   display: flex;
@@ -22,14 +25,20 @@ header {
 }
 
 header a {
-  color: black;
+  color: #a96e5b;
   text-decoration: none;
+  margin: 10px; 
+}
+
+header a:hover {
+  text-decoration: underline;
 }
 
 .App main {
   background-color: white;
   padding: 20px 40px 20px 40px;
-  margin: 20px;
+  margin: 80px 0;
+  border: 2px #a96e5b solid;
 }
 
 .instrument-list {
@@ -81,6 +90,11 @@ header a {
   text-align: right;
 }
 
+.instrument-card__edit-button:hover {
+  font-weight: 800;
+  border: 1px #a96e5b dotted;
+}
+
 .instrument-form {
   margin: 20px 0;
 }
@@ -120,4 +134,17 @@ header a {
 
 .instrument-form__button .primary {
   font-weight: bold;
+}
+
+.instrument-search__form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.instrument-search__form button {
+  padding: 4px;
+}
+
+.instrument-search__form input {
+  flex: 1;
 }
