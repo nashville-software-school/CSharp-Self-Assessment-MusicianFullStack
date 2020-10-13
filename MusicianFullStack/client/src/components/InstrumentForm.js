@@ -38,6 +38,10 @@ const InstrumentForm = () => {
     history.push('/');
   };
 
+  if (name === "" || difficultyId === 0) {
+    return null;
+  }
+
   return (
     <>
       <h1>Edit Instrument</h1>
