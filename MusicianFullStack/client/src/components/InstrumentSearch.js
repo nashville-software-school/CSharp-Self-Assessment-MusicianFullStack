@@ -1,13 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import InstrumentCard from './InstrumentCard';
-import { InstrumentContext } from '../providers/InstrumentProvider';
+import { searchInstruments } from '../modules/instrumentManager';
 
 const InstrumentSearch = () => {
-  const { instruments, searchInstruments } = useContext(InstrumentContext);
+  const [ instruments, setInstruments ] = useState([]);
   const [ criterion, setCriterion ] = useState("");
 
+  const doSearchInstruments = (criterion) => {
+    searchInstruments(criterion)
+      .then((instruments) => setInstruments(instruments));
+  };
+
   useEffect(() => {
-    searchInstruments(criterion);
+    doSearchInstruments(criterion);
   }, []);
 
   return (
@@ -15,7 +20,7 @@ const InstrumentSearch = () => {
       <h1>Instrument Search</h1>
       <div className="instrument-search__form">
         <input id="search" value={criterion} onChange={e => setCriterion(e.target.value)}/>
-        <button onClick={() => searchInstruments(criterion)}>Search</button>
+        <button onClick={() => doSearchInstruments(criterion)}>Search</button>
       </div>
       <div className="instrument-list">
         {instruments.map(instrument =>

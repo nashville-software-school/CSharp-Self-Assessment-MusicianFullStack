@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { InstrumentContext } from '../providers/InstrumentProvider';
-import { DifficultyContext } from '../providers/DifficultyProvider';
+import { getInstrument, updateInstrument } from '../modules/instrumentManager';
+import { getDifficulties } from '../modules/difficultyManager';
 
 const InstrumentForm = () => {
   const history = useHistory();
@@ -9,20 +9,19 @@ const InstrumentForm = () => {
   const { id } = useParams();
   const instrumentId = parseInt(id);
 
-  const { getInstrument, updateInstrument } = useContext(InstrumentContext);
-  const { difficulties, getDifficulties } = useContext(DifficultyContext);
-
+  const [difficulties, setDifficulties] = useState([]);
   const [name, setName] = useState("");
   const [difficultyId, setDifficultyId] = useState(0);
 
   useEffect(() => {
     getInstrument(instrumentId)
-      .then(instrument => {
+      .then((instrument) => {
         setName(instrument.name);
         setDifficultyId(instrument.difficultyId);
       });
 
-    getDifficulties();
+    getDifficulties()
+      .then((difficulties) => setDifficulties(difficulties));
   }, []);
 
   const saveInstrument = () => {

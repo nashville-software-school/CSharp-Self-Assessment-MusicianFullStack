@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import InstrumentCard from './InstrumentCard';
-import { InstrumentContext } from '../providers/InstrumentProvider';
+import { getInstruments } from '../modules/instrumentManager';
 
 const InstrumentList = () => {
-  const { instruments, getInstruments } = useContext(InstrumentContext);
+  const [ instruments, setInstruments ] = useState([]);
 
   useEffect(() => {
-    getInstruments();
+    getInstruments().then(instruments => setInstruments(instruments));
   }, []);
 
   return (
@@ -14,9 +14,9 @@ const InstrumentList = () => {
       <h1>Instrument List</h1>
       <div className="instrument-list">
         {instruments.map(instrument =>
-          <InstrumentCard 
+          <InstrumentCard
             key={instrument.id}
-            instrument={instrument} 
+            instrument={instrument}
             allowEdit={true} />
         )}
       </div>
